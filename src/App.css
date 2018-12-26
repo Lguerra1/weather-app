@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+.paddingTop {
+  margin-top: 20px !important;
+}
+
+.stat-text {
+  font-size: 25px !important;
+}
+
