@@ -6,14 +6,16 @@ export default class HomePage extends Component {
     state = {
         weather: [],
         conditions: [],
+        description: [],
         input: ''
     }
     getWeather() {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=getyourownkey`).then(res => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=getkeyfromopenweathersite`).then(res => {
             console.log(res.data)
             this.setState({
                 weather: res.data,
-                conditions: res.data.main
+                conditions: res.data.main,
+                description: res.data.weather[0].description
             })
         })
     }
@@ -29,7 +31,7 @@ export default class HomePage extends Component {
                     <input className='ui large input focus' placeholder='enter a city name' type='text' value={this.state.input} onChange={(e) => this.handleChange(e.target.value)}></input>
                     
                     <button className='mini ui primary button' onClick={() => this.getWeather()}>Submit</button>
-                    < WeatherDay weather={this.state.weather} conditions={this.state.conditions} />
+                    < WeatherDay weather={this.state.weather} conditions={this.state.conditions} description={this.state.description} />
                     </div>
                 </div>
             </div>
