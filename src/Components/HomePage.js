@@ -10,7 +10,7 @@ export default class HomePage extends Component {
         input: ''
     }
     getWeather() {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=getkeyfromopenweathersite`).then(res => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.input}&appid=getyourowndamnkey`).then(res => {
             console.log(res.data)
             this.setState({
                 weather: res.data,

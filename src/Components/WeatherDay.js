@@ -8,52 +8,17 @@ const WeatherDay = (props) => {
     const low = 1.8 * (min - 273) + 32
     const highTemp = Math.round(high)
     const lowTemp = Math.round(low)
+    let icon = null;
 
     if (highTemp >= 70) {
-        return (
-            <div className='ui container'>
-                <h2>Todays Weather   <i className="large sun icon"></i></h2>
-
-                <div className='ui centerd column'>
-                    <div className='stat-text'> City Name: {props.weather.name}</div>
-                    <br />
-                    <div className='stat-text'> Air Pressure: {props.conditions.pressure}</div>
-                    <br />
-                    <div className='stat-text'> Humidity: {props.conditions.humidity}</div>
-                    <br />
-                    <div className='stat-text'> High Temp: {highTemp || ''}</div>
-                    <br />
-                    <div className='stat-text'> Low Temp: {lowTemp || ''}</div>
-                    <br />
-                    <div className='stat-text'> Description: {props.description}</div>
-                </div>
-            </div>
-        )
+        icon = <i className="large sun icon"></i>
     } else if (highTemp < 70) {
-        return (
-            <div className='ui container'>
-                <h2>Todays Weather  <i className="large snowflake icon"></i></h2>
-
-                <div className='ui centerd column'>
-                    <div className='stat-text'> City Name: {props.weather.name}</div>
-                    <br />
-                    <div className='stat-text'> Air Pressure: {props.conditions.pressure}</div>
-                    <br />
-                    <div className='stat-text'> Humidity: {props.conditions.humidity}</div>
-                    <br />
-                    <div className='stat-text'> High Temp: {highTemp || ''}</div>
-                    <br />
-                    <div className='stat-text'> Low Temp: {lowTemp || ''}</div>
-                    <br />
-                    <div className='stat-text'> Description: {props.description}</div>
-                </div>
-            </div>
-        )
+        icon = <i className="large snowflake icon"></i>
     }
 
     return (
         <div className='ui container'>
-            <h2>Todays Weather</h2>
+            <h2>Todays Weather  <i>{icon}</i></h2>
             <div className='ui centerd column'>
                 <div className='stat-text'> City Name: {props.weather.name}</div>
                 <br />
